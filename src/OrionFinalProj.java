@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class App {
+public class OrionFinalProj {
 	public static String[] monthsOpt = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov",
 			"Dec" };
 	public static JOptionPane window = new JOptionPane();
@@ -11,7 +11,6 @@ public class App {
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = i + 1;
 		}
-
 		return arr;
 	}
 
@@ -66,14 +65,14 @@ public class App {
 
 	public static void main(String[] args) throws Exception {
 		boolean flag1 = true;
-		boolean flag2 = true;
+
 		int year = 0;
 
-		int startApp = window.showConfirmDialog(null, "Do you awant to proceed? ", "Day Calculator ",
-				window.YES_NO_OPTION);
-		if (startApp == window.YES_OPTION) {
+		while (flag1) {
+			int startApp = window.showConfirmDialog(null, "Do you awant to proceed? ", "Day Calculator ",
+					window.YES_NO_OPTION);
+			if (startApp == window.YES_OPTION) {
 
-			while (flag1) {
 				try {
 					year = Integer.parseInt(window.showInputDialog("Choose a Year from 1900 - 2030"));
 				} catch (Exception e) {
@@ -95,17 +94,15 @@ public class App {
 							"Day of the week",
 							window.INFORMATION_MESSAGE);
 
-					flag1 = false;
 				} else {
 					window.showMessageDialog(null, "Year is not with in the range!! ", "WARNING",
 							window.WARNING_MESSAGE);
 
 				}
-
+			} else {
+				window.showMessageDialog(null, "You quitted out of the program!! ", "QUIT", window.INFORMATION_MESSAGE);
+				flag1 = false;
 			}
-
-		} else {
-			window.showMessageDialog(null, "You quitted out of the program!! ", "QUIT", window.INFORMATION_MESSAGE);
 		}
 	}
 }
